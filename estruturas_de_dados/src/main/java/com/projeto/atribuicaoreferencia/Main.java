@@ -14,6 +14,16 @@ public class Main{
         System.out.println("Novo valor de A é: " + intA);
         System.out.println("Valor de B é: " + intB);
 
+        MeuObjeto objA = new MeuObjeto(1);
+        MeuObjeto objB = objA;
+
+        System.out.println("Valor do objeto A: " + objA.numero);
+        System.out.println("Valor do objeto B: " + objB.numero);
+
+        objA.setNumero(5);
+        System.out.println("Novo valor do objeto A: " + objA.numero);
+        System.out.println("Valor do objeto B: " + objB.numero);
+
     }
 
 }
