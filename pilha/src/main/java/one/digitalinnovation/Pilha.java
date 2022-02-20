@@ -23,6 +23,8 @@ public class Pilha{
             firstNodeRef = firstNodeRef.getNodeRef();
 
             return(poppedNode);
+        } else{
+            return null;
         }
 
     }
@@ -36,4 +38,28 @@ public class Pilha{
         return(this.firstNodeRef == null);
     }
 
+    @Override
+    public String toString(){
+        String strReturn = "-------------------\n";
+        strReturn = strReturn + "       Pilha\n";
+        strReturn += "-------------------\n";
+
+        Node auxNode = firstNodeRef;
+
+        while(true){
+
+            if(auxNode != null){
+
+                strReturn += "[Node{data = " + auxNode.getData() + "}]\n";
+                auxNode = auxNode.getNodeRef();
+
+            } else{
+                break;
+            }
+
+        }
+
+        strReturn += "===================\n";
+        return (strReturn);
+    }
 }
