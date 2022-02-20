@@ -1,21 +1,21 @@
 package com.projetono;
 
-public class No{
+public class No<T>{
 
-    private String content;
-    private No nextNode;
+    private T content;
+    private No<T> nextNode;
 
-    public No(String content){
+    public No(T content){
         this.nextNode = null; // Garantindo que a referência do nó criado esteja nula
         this.content = content;
     }
 
     // Setters e Getters
-    public String getContent(){
+    public T getContent(){
         return content;
     }
 
-    public void setContent(String content){
+    public void setContent(T content){
         this.content = content;
     }
 
