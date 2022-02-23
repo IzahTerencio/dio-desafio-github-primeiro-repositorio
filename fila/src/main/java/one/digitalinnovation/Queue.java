@@ -9,13 +9,15 @@ public class Queue{
     }
 
     // Adicionando elementos à estrutura da fila
-    public void enqueue(Node newNode){
+    public void enqueue(Object objQueue){
+        Node newNode = new Node(objQueue);
+
         newNode.setRefNode(firstRefNode);
         firstRefNode = newNode;
     }
 
     // Retornando o primeiro elemento da estrutura
-    public Node first(){
+    public Object first(){
 
         if(!this.isEmpty()){
             Node firstNode = firstRefNode;
@@ -30,7 +32,7 @@ public class Queue{
 
             }
 
-            return(firstNode);
+            return(firstNode.getObject());
 
         }
 
@@ -39,7 +41,7 @@ public class Queue{
     }
 
     // Retirando um elemento da estrutura da fila
-    public Node dequeue(){
+    public Object dequeue(){
 
         if(!this.isEmpty()){
             Node firstNode = firstRefNode;
@@ -57,7 +59,7 @@ public class Queue{
 
             }
 
-            return(firstNode);
+            return(firstNode.getObject());
 
         }
 
