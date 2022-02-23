@@ -30,6 +30,8 @@ public class Queue{
 
             }
 
+            return(firstNode);
+
         }
 
         return(null);
@@ -46,15 +48,16 @@ public class Queue{
             while(true){
 
                 if(firstNode.getRefNode() != null){
+                    auxNode = firstNode;
                     firstNode = firstNode.getRefNode();
                 } else{
                     auxNode.setRefNode(null);
                     break;
                 }
 
-                return(firstNode);
-
             }
+
+            return(firstNode);
 
         }
 
