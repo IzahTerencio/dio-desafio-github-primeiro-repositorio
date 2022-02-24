@@ -28,6 +28,23 @@ public class LinkedList<T>{
 
     }
 
+    // Obtendo um determinado nó da estrutura a partir de um índice, sem contudo extraí-lo da mesma
+    private Node<T> getNode(int index){
+
+        validateIndex(index);
+
+        Node<T> auxNode = firstNodeRef;
+        Node<T> returnNode = null;
+
+        for(int i=0; i<this.size()-1; i++){
+            returnNode = auxNode;
+            auxNode = auxNode.getNextNode();
+        }
+
+        return(returnNode);
+
+    }
+
     // Obtendo o tamanho da estrutura da lista, ou seja, a quantidade de nós presentes nela
     public int size(){
         int listSize = 0;
@@ -51,6 +68,14 @@ public class LinkedList<T>{
         }
 
         return(listSize);
+    }
+
+    public void validateIndex(int index){
+        if(index >= size()){
+            int lastIndex = size()-1;
+
+            throw new IndexOutOfBoundsException("Não existe conteúdo no índice " + index + " desta lista. último índice: " + lastIndex);
+        }
     }
 
     // Verificando se a lista está ou não vazia
