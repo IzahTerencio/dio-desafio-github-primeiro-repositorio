@@ -28,6 +28,11 @@ public class LinkedList<T>{
 
     }
 
+    // Retornando o conteúdo de um determinado nó
+    public T get(int index){
+        return(getNode(index).getContent());
+    }
+
     // Obtendo um determinado nó da estrutura a partir de um índice, sem contudo extraí-lo da mesma
     private Node<T> getNode(int index){
 
