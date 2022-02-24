@@ -1,15 +1,15 @@
 package one.digitalinnovation;
 
-public class Node{
+public class Node<T>{
 
-    private Object object;
-    private Node refNode;
+    private T object;
+    private Node<T> refNode;
 
     // Construtor padrão
     public Node(){}
 
     // Construtor parametrizado
-    public Node(Object object){
+    public Node(T object){
         this.refNode = null;
         this.object = object;
     }
@@ -18,7 +18,7 @@ public class Node{
         return object;
     }
 
-    public void setObject(Object object) {
+    public void setObject(T object) {
         this.object = object;
     }
 

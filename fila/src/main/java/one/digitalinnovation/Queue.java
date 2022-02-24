@@ -1,15 +1,15 @@
 package one.digitalinnovation;
 
-public class Queue{
+public class Queue<T>{
 
-    private Node firstRefNode;
+    private Node<T> firstRefNode;
 
     public Queue(){
         this.firstRefNode = null;
     }
 
     // Adicionando elementos à estrutura da fila
-    public void enqueue(Object objQueue){
+    public void enqueue(T objQueue){
         Node newNode = new Node(objQueue);
 
         newNode.setRefNode(firstRefNode);
@@ -17,7 +17,7 @@ public class Queue{
     }
 
     // Retornando o primeiro elemento da estrutura
-    public Object first(){
+    public T first(){
 
         if(!this.isEmpty()){
             Node firstNode = firstRefNode;
@@ -32,7 +32,7 @@ public class Queue{
 
             }
 
-            return(firstNode.getObject());
+            return((T)firstNode.getObject());
 
         }
 
@@ -41,7 +41,7 @@ public class Queue{
     }
 
     // Retirando um elemento da estrutura da fila
-    public Object dequeue(){
+    public T dequeue(){
 
         if(!this.isEmpty()){
             Node firstNode = firstRefNode;
@@ -59,7 +59,7 @@ public class Queue{
 
             }
 
-            return(firstNode.getObject());
+            return((T)firstNode.getObject());
 
         }
 
