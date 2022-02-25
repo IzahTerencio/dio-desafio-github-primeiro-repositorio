@@ -103,4 +103,19 @@ public class LinkedList<T>{
         return(firstNodeRef == null);
     }
 
+    // Método para auxiliar a visualização da estrutura de dados em console
+    @Override
+    public String toString(){
+        String strReturn = "";
+        Node<T> auxNode = firstNodeRef;
+
+        for(int i=0; i<this.size(); i++){
+            strReturn += "[No{conteúdo = " + auxNode.getContent() + "}] --> ";
+            auxNode = auxNode.getNextNode();
+        }
+        strReturn += "null";
+
+        return(strReturn);
+    }
+
 }
