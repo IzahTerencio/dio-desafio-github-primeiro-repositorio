@@ -41,7 +41,7 @@ public class LinkedList<T>{
         Node<T> auxNode = firstNodeRef;
         Node<T> returnNode = null;
 
-        for(int i=0; i<this.size()-1; i++){
+        for(int i=0; i<=index; i++){
             returnNode = auxNode;
             auxNode = auxNode.getNextNode();
         }
