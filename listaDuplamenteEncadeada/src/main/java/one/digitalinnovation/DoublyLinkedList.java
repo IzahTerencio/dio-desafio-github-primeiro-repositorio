@@ -60,6 +60,31 @@ public class DoublyLinkedList<T>{
         listSize += 1;
     }
 
+    // Método para retirar um elemento da estrutura da lista
+    public void remove(int index){
+
+        if(index == 0){
+            firstNode = firstNode.getNextNode();
+
+            if(firstNode != null){
+                firstNode.setPreviousNode(null);
+            }
+
+        } else{
+            DoubleNode<T> auxNode = getNode(index);
+            auxNode.getPreviousNode().setNextNode(auxNode.getNextNode());
+
+            if(auxNode != lastNode){
+                auxNode.getNextNode().setPreviousNode(auxNode.getPreviousNode());
+            } else{
+                lastNode = auxNode;
+            }
+
+        }
+
+        this.listSize -= 1;
+    }
+
     private DoubleNode<T> getNode(int index){
         DoubleNode<T> auxNode = firstNode;
 
