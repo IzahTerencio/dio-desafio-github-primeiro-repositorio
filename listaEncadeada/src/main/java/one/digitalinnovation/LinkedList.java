@@ -50,6 +50,21 @@ public class LinkedList<T>{
 
     }
 
+    // Retirando (extraindo) um determinado nó da estrutura da lista
+    public T remove(int index){
+        Node<T> pivotNode = this.getNode(index);
+
+        if(index == 0){
+            firstNodeRef = pivotNode.getNextNode();
+            return(pivotNode.getContent());
+        }
+
+        Node<T> previousNode = getNode(index-1);
+        previousNode.setNextNode((pivotNode.getNextNode()));
+        return(pivotNode.getContent());
+
+    }
+
     // Obtendo o tamanho da estrutura da lista, ou seja, a quantidade de nós presentes nela
     public int size(){
         int listSize = 0;
