@@ -17,6 +17,25 @@ public class DoublyLinkedList<T>{
         return(this.getNode(index).getContent());
     }
 
+    // Método para adicionar um novo elemento (nó) na estrutura da lista
+    public void add(T element){
+        DoubleNode<T> newNode = new DoubleNode<>(element);
+
+        newNode.setNextNode(null);
+        newNode.setPreviousNode(lastNode);
+
+        if(firstNode == null){
+            firstNode = newNode;
+        }
+
+        if(lastNode != null){
+            lastNode.setNextNode(newNode);
+        }
+
+        lastNode = newNode;
+        listSize += 1;
+    }
+
     private DoubleNode<T> getNode(int index){
         DoubleNode<T> auxNode = firstNode;
 
