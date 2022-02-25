@@ -33,5 +33,5 @@ public class Node<T>{
                 "content=" + content +
                 '}';
     }
-    
+
 }
