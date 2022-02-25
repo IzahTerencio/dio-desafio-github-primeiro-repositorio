@@ -36,6 +36,30 @@ public class DoublyLinkedList<T>{
         listSize += 1;
     }
 
+    public void add(int index, T element){
+        DoubleNode<T> auxNode = getNode(index);
+        DoubleNode<T> newNode = new DoubleNode<>(element);
+        newNode.setNextNode(auxNode);
+
+        if(newNode.getNextNode() != null){
+
+            newNode.setPreviousNode(auxNode.getPreviousNode());
+            newNode.getNextNode().setPreviousNode(newNode);
+
+        } else{
+            newNode.setPreviousNode(lastNode);
+            lastNode = newNode;
+        }
+
+        if(index == 0){
+            firstNode = newNode;
+        } else{
+            newNode.getPreviousNode().setNextNode(newNode);
+        }
+
+        listSize += 1;
+    }
+
     private DoubleNode<T> getNode(int index){
         DoubleNode<T> auxNode = firstNode;
 
