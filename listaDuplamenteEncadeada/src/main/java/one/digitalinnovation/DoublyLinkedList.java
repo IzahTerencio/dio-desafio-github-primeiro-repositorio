@@ -100,4 +100,20 @@ public class DoublyLinkedList<T>{
         return(listSize);
     }
 
+    // Sobrecarga do método toString()
+
+
+    @Override
+    public String toString(){
+        String strReturn = "";
+        DoubleNode<T> auxNode = firstNode;
+
+        for(int i=0; i < size(); i++){
+            strReturn += "[Node{content = " + auxNode.getContent() + "}] -->";
+            auxNode = auxNode.getNextNode();
+        }
+
+        strReturn += "null";
+        return(strReturn);
+    }
 }
