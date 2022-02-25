@@ -40,5 +40,5 @@ public class DoubleNode<T>{
                 "content=" + content +
                 '}';
     }
-    
+
 }
