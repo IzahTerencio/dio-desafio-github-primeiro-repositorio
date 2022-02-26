@@ -87,4 +87,22 @@ public class CircularList<T>{
         return(this.listSize);
     }
 
+    @Override
+    public String toString(){
+        String strReuturn = "";
+        Node<T> auxNode = this.tail;
+
+        for(int i=0; i < this.size(); i++){
+            strReuturn += "[Node{content = " + auxNode.getContent() + "}] --> ";
+            auxNode = auxNode.getNextNode();
+        }
+
+        if(this.size() != 0){
+            strReuturn += "(Retorna ao início)";
+        } else{
+            strReuturn += "[]";
+        }
+
+        return(strReuturn);
+    }
 }
