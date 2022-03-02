@@ -83,4 +83,98 @@ public class binaryTree<T extends Comparable<T>>{
 
     }
 
+    // Método para remover (deletar) um elemento da estrutura da árvore
+    public void remove(T content){
+
+        try{
+
+            binaryNode<T> current = this.root;
+            binaryNode<T> parent = null;
+            binaryNode<T> child = null;
+            binaryNode<T> auxNode = null;
+
+            while((current != null) && (current.getContent().equals(content))){
+                parent = current;
+
+                if(content.compareTo(current.getContent()) < 0){
+                    current = current.getLeftNode();
+                } else{
+                    current = current.getRightNode();
+                }
+
+            }
+
+            if(current == null){
+                System.out.println("Conteúdo não encontrado na árvore!");
+            }
+
+            if(parent == null){
+
+                if(current.getRightNode() == null){
+
+                    this.root = current.getLeftNode();
+
+                } else if(current.getLeftNode() == null){
+
+                    this.root = current.getRightNode();
+
+                } else{
+
+                    for(auxNode = current, child = current.getLeftNode(); child.getRightNode() != null; auxNode = child, child = child.getLeftNode()){
+
+                        if(child != current.getLeftNode()){
+                            auxNode.setRightNode(child.getLeftNode());
+                            child.setLeftNode(root.getLeftNode());
+                        }
+
+                    }
+
+                    child.setRightNode(root.getRightNode());
+                    root = child;
+
+                }
+
+            } else if(current.getRightNode() == null){
+
+                if(parent.getLeftNode() == current){
+                    parent.setLeftNode(current.getLeftNode());
+                } else{
+                    parent.setRightNode(current.getLeftNode());
+                }
+
+            } else if(current.getLeftNode() == null){
+
+                if(parent.getLeftNode() == current){
+                    parent.setLeftNode(current.getRightNode());
+                } else{
+                    parent.setRightNode(current.getRightNode());
+                }
+
+            } else{
+
+                for(auxNode=current, child=current.getLeftNode(); child.getRightNode() != null; auxNode=child, child=child.getRightNode()){
+
+                    if(child != current.getLeftNode()){
+                        auxNode.setRightNode(child.getLeftNode());
+                        child.setLeftNode(current.getLeftNode());
+                    }
+
+                    child.setRightNode(current.getRightNode());
+
+                    if(parent.getLeftNode() == current){
+                        parent.setLeftNode(child);
+                    } else{
+                        parent.setRightNode(child);
+                    }
+
+                }
+
+            }
+
+        } catch(NullPointerException arg){
+            System.out.println("Conteúdo não encontrado");
+        }
+
+    }
+
 }
