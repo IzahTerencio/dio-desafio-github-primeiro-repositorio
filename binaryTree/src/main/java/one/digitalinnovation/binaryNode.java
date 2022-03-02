@@ -46,5 +46,5 @@ public class binaryNode<T extends Comparable<T>>{
                 "content=" + content +
                 '}';
     }
-    
+
 }
