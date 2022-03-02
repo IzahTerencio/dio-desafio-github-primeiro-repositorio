@@ -16,7 +16,7 @@ public class CircularList<T>{
             this.head.setNextNode(tail);
         } else{
             newNode.setNextNode(this.tail);
-            this.tail.setNextNode(newNode);
+            this.head.setNextNode(newNode);
             this.tail = newNode;
         }
 
@@ -44,7 +44,7 @@ public class CircularList<T>{
             auxNode.setNextNode(auxNode.getNextNode().getNextNode());
 
         }
-        this.listSize += 1;
+        this.listSize -= 1;
 
     }
 
