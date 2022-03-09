@@ -2,6 +2,7 @@ package one.digitalinnovation;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ExemploOrdenacaoList{
@@ -26,6 +27,26 @@ public class ExemploOrdenacaoList{
         System.out.println("===== ORDEM NATURAL DOS ELEMENTOS =====");
         Collections.sort(gatos);
         System.out.println(gatos);
+        System.out.println();
+
+        System.out.println("===== ORDENANDO COM O USO DE COMPARATOR =====");
+        Collections.sort(gatos, new ComparatorIdade());
+        System.out.println(gatos);
+        System.out.println();
+
+        gatos.sort(new ComparatorIdade());
+        System.out.println(gatos);
+        System.out.println();
+
+        System.out.println("===== COMPARACAO POR COR =====");
+        gatos.sort(new ComparatorCor());
+        System.out.println(gatos);
+        System.out.println();
+
+        System.out.println("===== COMPARANDO POR COR, NOME E IDADE");
+        gatos.sort(new ComparatorNomeCorIdade());
+        System.out.println(gatos);
+        System.out.println();
 
     }
 
@@ -71,6 +92,47 @@ class Gato implements Comparable<Gato>{
     @Override
     public int compareTo(Gato gato) {
         return(this.getNome().compareToIgnoreCase(gato.getNome()));
+    }
+
+}
+
+
+class ComparatorIdade implements Comparator<Gato>{
+
+    @Override
+    public int compare(Gato g, Gato g2){
+        return(Integer.compare(g.getIdade(), g2.getIdade()));
+    }
+
+}
+
+
+class ComparatorCor implements Comparator<Gato>{
+
+    @Override
+    public int compare(Gato g, Gato g2){
+        return(g.getCor().compareToIgnoreCase(g2.getCor()));
+    }
+
+}
+
+class ComparatorNomeCorIdade implements Comparator<Gato>{
+
+    @Override
+    public int compare(Gato g, Gato g2){
+
+        int nome = g.getNome().compareToIgnoreCase(g2.getNome());
+        if(nome != 0){
+            return(nome);
+        }
+
+        int cor = g.getCor().compareToIgnoreCase(g2.getCor());
+        if(cor != 0){
+            return(cor);
+        }
+
+        return(Integer.compare(g.getIdade(), g2.getIdade()));
+
     }
 
 }
