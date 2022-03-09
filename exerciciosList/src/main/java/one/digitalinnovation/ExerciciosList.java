@@ -8,7 +8,7 @@ public class ExerciciosList{
 
     public static void main(String[] args){
 
-        // O programa deve receber a temperatura média dos 6
+/*        // O programa deve receber a temperatura média dos 6
         // primeiros meses do ano e armazenar as mesmas em uma lista.
         Scanner entrada = new Scanner(System.in);
         double temperatura = 0d;
@@ -51,6 +51,44 @@ public class ExerciciosList{
 
             }
 
+        }*/
+
+        Scanner entrada = new Scanner(System.in);
+        String resposta;
+        List<String> respostas = new ArrayList<>();
+
+            System.out.print("Telefonou para a vítima? (s/n) ");
+            resposta = entrada.next();
+            respostas.add(resposta);
+            System.out.print("Esteve no local do crime? (s/n) ");
+            resposta = entrada.next();
+            respostas.add(resposta);
+            System.out.print("Mora perto da vítima? (s/n) ");
+            resposta = entrada.next();
+            respostas.add(resposta);
+            System.out.print("Devia para a vítima? (s/n) ");
+            resposta = entrada.next();
+            respostas.add(resposta);
+            System.out.print("Já trabalhou com a vítima? (s/n) ");
+            resposta = entrada.next();
+            respostas.add(resposta);
+
+        int cont = 0;
+        String resp;
+        for(int i=0; i<5; i++){
+            if(respostas.get(i).compareToIgnoreCase("s") == 0){
+                cont++;
+            }
+        }
+
+        if(cont == 2){
+            System.out.println("Suspeito");
+        } else if(cont==3 || cont==4){
+            System.out.println("Cumplice");
+        } else if(cont==5){
+            System.out.println("Assassino");
+        } else{
+            System.out.println("Inocente");
         }
 
     }
